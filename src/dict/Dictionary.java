@@ -2,11 +2,20 @@ package dict;
 
 import java.util.ArrayList;
 
+
+/***
+ * This class is meant to model a dictionary structure similar to Python. It has a very much Python-inspired toString.
+ * The only thing I wasn't able to do was figure out how to use square bracket syntax, e.g. dictionary["key"] = "value". 
+ * @author nbroyles
+ *
+ */
 public class Dictionary {
+	
 	
 	private ArrayList<String> keys;
 	private ArrayList<Object> values;
 	
+	/*  Constructors  */
 	public Dictionary() {
 		this.keys = new ArrayList<String>();
 		this.values = new ArrayList<Object>();
@@ -25,6 +34,7 @@ public class Dictionary {
 	}
 	
 	
+	/* Object Methods */
 	public Object get(String key) {
 		int index = this.keys.indexOf(key);
 		if (index == -1) {
@@ -35,12 +45,14 @@ public class Dictionary {
 			return this.values.get(index);
 		}
 	}
-	
-	
+	/***
+	 * Returns the value at a certain index of the dictionary
+	 * @param index
+	 * @return Object
+	 */
 	public Object get(int index) {
 		return this.values.get(index);
 	}
-	
 	
 	public void set(String key, Object value) {
 		int index = this.keys.indexOf(key);
@@ -55,7 +67,6 @@ public class Dictionary {
 		}
 	}
 	
-	
 	public void remove(String key) {
 		int index = this.keys.indexOf(key);
 		try {
@@ -65,7 +76,6 @@ public class Dictionary {
 			System.err.println("KeyError: '" + key + "' does not exist");
 		}
 	}
-	
 	
 	public Object pop(String key) {
 		int index = this.keys.indexOf(key);
@@ -85,7 +95,6 @@ public class Dictionary {
 		return this.keys.size();
 	}
 	
-	
 	public ArrayList<String> keys() {
 		return this.keys;
 	}
@@ -94,7 +103,7 @@ public class Dictionary {
 		return this.values;
 	}
 	
-	
+	// To String
 	/***
 	 * Returns a string representation of the dictionary
 	 */
